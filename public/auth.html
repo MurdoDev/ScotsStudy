@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudyScot Account</title>
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/MurdoDev/ScotsStudy/main/myappassets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg: #021427;
+    --panel: #083b73;
+    --panel-light: #0d57a3;
+    --primary: #0072ce;
+    --primary-hover: #2890e8;
+    --text: #f8fbff;
+    --muted: #a9c2de;
+    --border: rgba(255,255,255,0.10);
+    --success: #22c55e;
+    --danger: #ef4444;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Inter, sans-serif;
+    background:
+        radial-gradient(circle at top left, rgba(0,114,206,0.35), transparent 35%),
+        var(--bg);
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px;
+}
+
+.auth-shell {
+    width: min(980px, 100%);
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 24px;
+    align-items: stretch;
+}
+
+.brand-card,
+.auth-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    padding: 30px;
+    box-shadow: 0 18px 42px rgba(0,0,0,0.28);
+}
+
+.logo {
+    width: 230px;
+    max-width: 100%;
+    display: block;
+    margin-bottom: 28px;
+}
+
+.brand-card h1 {
+    font-size: 42px;
+    line-height: 1;
+    margin: 0 0 14px;
+}
+
+.brand-card p,
+.helper-text {
+    color: var(--muted);
+    font-weight: 650;
+    line-height: 1.55;
+}
+
+.brand-pill {
+    display: inline-block;
+    margin-top: 22px;
+    background: var(--panel-light);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: 900;
+}
+
+.auth-tabs {
+    display: flex;
+    gap: 10px;
+    background: rgba(255,255,255,0.06);
+    padding: 8px;
+    border-radius: 999px;
+    margin-bottom: 24px;
+}
+
+.tab-btn {
+    flex: 1;
+    border: none;
+    border-radius: 999px;
+    padding: 12px;
+    background: transparent;
+    color: var(--text);
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.tab-btn.active {
+    background: var(--primary);
+}
+
+.auth-panel {
+    display: none;
+}
+
+.auth-panel.active {
+    display: block;
+}
+
+h2 {
+    margin: 0 0 8px;
+    font-size: 28px;
+}
+
+label {
+    display: block;
+    margin: 16px 0 7px;
+    font-weight: 800;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid var(--border);
+    background: var(--panel-light);
+    color: var(--text);
+    font-size: 15px;
+    outline: none;
+}
+
+input::placeholder {
+    color: rgba(248,251,255,0.62);
+}
+
+.primary-btn,
+.secondary-btn {
+    width: 100%;
+    margin-top: 18px;
+    border: none;
+    border-radius: 999px;
+    padding: 15px 18px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.primary-btn {
+    background: var(--primary);
+    color: white;
+}
+
+.primary-btn:hover {
+    background: var(--primary-hover);
+}
+
+.secondary-btn {
+    background: var(--panel-light);
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.auth-message {
+    min-height: 22px;
+    margin-top: 18px;
+    padding: 14px 16px;
+    border-radius: 16px;
+    font-weight: 800;
+    border: 1px solid transparent;
+    display: none;
+}
+
+.auth-message.show {
+    display: block;
+}
+
+.auth-message.good {
+    background: rgba(34,197,94,0.14);
+    border-color: rgba(34,197,94,0.35);
+    color: #86efac;
+}
+
+.auth-message.bad {
+    background: rgba(239,68,68,0.14);
+    border-color: rgba(239,68,68,0.35);
+    color: #fca5a5;
+}
+
+.auth-message.info {
+    background: rgba(0,114,206,0.14);
+    border-color: rgba(0,114,206,0.35);
+    color: #93c5fd;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 18px;
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 800;
+}
+
+.back-link:hover {
+    color: var(--text);
+}
+
+.signed-in-box {
+    display: none;
+    background: var(--panel-light);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 22px;
+}
+
+.signed-in-box.active {
+    display: block;
+}
+
+@media (max-width: 820px) {
+    .auth-shell {
+        grid-template-columns: 1fr;
+    }
+
+    .brand-card h1 {
+        font-size: 34px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="auth-shell">
+    <div class="brand-card">
+        <img class="logo" src="https://raw.githubusercontent.com/MurdoDev/ScotsStudy/main/myappassets/logo.png" alt="StudyScot logo">
+        <h1>Your StudyScot account</h1>
+        <p>Sign in to keep your profile ready for future features like cloud results, friends, classes, and teacher/student tools.</p>
+        <div class="brand-pill">Built for Scottish qualifications</div>
+        <br>
+        <a class="back-link" href="/">← Back to StudyScot</a>
+    </div>
+
+    <div class="auth-card">
+        <div id="signedOutArea">
+            <div class="auth-tabs">
+                <button class="tab-btn active" id="loginTab" onclick="switchAuthTab('login')">Log in</button>
+                <button class="tab-btn" id="signupTab" onclick="switchAuthTab('signup')">Sign up</button>
+            </div>
+
+            <div id="loginPanel" class="auth-panel active">
+                <h2>Welcome back</h2>
+                <p class="helper-text">Log in with your email or Google account.</p>
+
+                <label>Email</label>
+                <input type="email" id="loginEmail" placeholder="you@example.com">
+
+                <label>Password</label>
+                <input type="password" id="loginPassword" placeholder="Your password">
+
+                <button class="primary-btn" onclick="loginWithEmail()">Log in</button>
+                <button class="secondary-btn" onclick="loginWithGoogle()">Continue with Google</button>
+            </div>
+
+            <div id="signupPanel" class="auth-panel">
+                <h2>Create account</h2>
+
+                <label>Username</label>
+                <input type="text" id="signupUsername" placeholder="@murdo" maxlength="24">
+
+                <label>Role</label>
+                <select id="signupRole">
+                    <option value="student">Student</option>
+                    <option value="teacher">Teacher</option>
+                </select>
+
+                <label>Email</label>
+                <input type="email" id="registerEmail" placeholder="you@example.com">
+
+                <label>Password</label>
+                <input type="password" id="registerPassword" placeholder="At least 6 characters">
+
+                <button class="primary-btn" onclick="registerWithEmail()">Create account</button>
+                <button class="secondary-btn" onclick="loginWithGoogle()">Continue with Google</button>
+            </div>
+        </div>
+
+        <div id="signedInArea" class="signed-in-box">
+            <h2>Signed in</h2>
+            <p id="accountEmail" class="helper-text"></p>
+            <button class="primary-btn" onclick="goToApp()">Open StudyScot</button>
+            <button class="secondary-btn" onclick="logoutAccount()">Log out</button>
+        </div>
+
+        <div id="authMessage" class="auth-message"></div>
+    </div>
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+import {
+    getAuth,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    signInWithPopup,
+    GoogleAuthProvider,
+    signOut,
+    onAuthStateChanged,
+    updateProfile
+} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyCz7Eca7M1LIkJ9tQD-Fe17N3SpN47s-qE",
+    authDomain: "studyscot.firebaseapp.com",
+    projectId: "studyscot",
+    storageBucket: "studyscot.firebasestorage.app",
+    messagingSenderId: "377371557761",
+    appId: "1:377371557761:web:3c53d35b642ff6ae4f7280"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const googleProvider = new GoogleAuthProvider();
+
+window.authTools = {
+    registerEmail: (email, password) => createUserWithEmailAndPassword(auth, email, password),
+    loginEmail: (email, password) => signInWithEmailAndPassword(auth, email, password),
+    loginGoogle: () => signInWithPopup(auth, googleProvider),
+    logout: () => signOut(auth),
+    updateProfile,
+    listen: callback => onAuthStateChanged(auth, callback)
+};
+</script>
+
+<script>
+function switchAuthTab(tab) {
+    document.getElementById("loginTab").classList.toggle("active", tab === "login");
+    document.getElementById("signupTab").classList.toggle("active", tab === "signup");
+
+    document.getElementById("loginPanel").classList.toggle("active", tab === "login");
+    document.getElementById("signupPanel").classList.toggle("active", tab === "signup");
+
+    setAuthMessage("");
+}
+
+function setAuthMessage(message, type = "") {
+    const el = document.getElementById("authMessage");
+
+    el.innerText = message || "";
+    el.className = `auth-message ${type}`;
+
+    if (message) {
+        el.classList.add("show");
+    }
+}
+
+function cleanUsername(value) {
+    return value
+        .trim()
+        .toLowerCase()
+        .replace(/^@+/, "")
+        .replace(/[^a-z0-9_]/g, "");
+}
+
+async function registerWithEmail() {
+    try {
+        const username = cleanUsername(document.getElementById("signupUsername").value);
+        const role = document.getElementById("signupRole").value;
+        const email = document.getElementById("registerEmail").value.trim();
+        const password = document.getElementById("registerPassword").value;
+
+        if (!username) {
+            setAuthMessage("Choose a username first.", "bad");
+            return;
+        }
+
+        setAuthMessage("Creating account...", "info");
+
+        const result = await window.authTools.registerEmail(email, password);
+
+        await window.authTools.updateProfile(result.user, {
+            displayName: `@${username}`
+        });
+
+        localStorage.setItem("studyScotUsername", `@${username}`);
+        localStorage.setItem("studyScotRole", role);
+
+        setAuthMessage("Account created!", "good");
+
+        setTimeout(() => {
+            sessionStorage.setItem("comingFromAuth", "true");
+            window.location.href = "/";
+        }, 700);
+
+    } catch (error) {
+        setAuthMessage(error.message, "bad");
+    }
+}
+
+async function loginWithEmail() {
+    try {
+        const email = document.getElementById("loginEmail").value.trim();
+        const password = document.getElementById("loginPassword").value;
+
+        setAuthMessage("Logging in...", "info");
+
+        await window.authTools.loginEmail(email, password);
+
+        setAuthMessage("Logged in!", "good");
+
+        setTimeout(() => {
+            sessionStorage.setItem("comingFromAuth", "true");
+            window.location.href = "/";
+        }, 600);
+
+    } catch (error) {
+        setAuthMessage(error.message, "bad");
+    }
+}
+
+async function loginWithGoogle() {
+    try {
+        setAuthMessage("Opening Google login...", "info");
+
+        await window.authTools.loginGoogle();
+
+        setAuthMessage("Logged in!", "good");
+
+        setTimeout(() => {
+            sessionStorage.setItem("comingFromAuth", "true");
+            window.location.href = "/";
+        }, 600);
+
+    } catch (error) {
+        setAuthMessage(error.message, "bad");
+    }
+}
+
+async function logoutAccount() {
+    try {
+        await window.authTools.logout();
+        setAuthMessage("Logged out.", "good");
+    } catch (error) {
+        setAuthMessage(error.message, "bad");
+    }
+}
+
+function goToApp() {
+    sessionStorage.setItem("comingFromAuth", "true");
+    window.location.href = "/";
+}
+
+window.addEventListener("load", () => {
+    window.authTools.listen(user => {
+        const signedOut = document.getElementById("signedOutArea");
+        const signedIn = document.getElementById("signedInArea");
+        const emailBox = document.getElementById("accountEmail");
+
+        if (user) {
+            signedOut.style.display = "none";
+            signedIn.classList.add("active");
+
+            emailBox.innerText =
+                `${user.displayName || user.email || "StudyScot user"} is currently signed in.`;
+
+        } else {
+            signedOut.style.display = "block";
+            signedIn.classList.remove("active");
+        }
+    });
+});
+</script>
+
+</body>
+</html>
