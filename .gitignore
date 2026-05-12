@@ -67,3 +67,9 @@ node_modules/
 
 # dataconnect generated files
 .dataconnect
+
+# Hide source HTML files from GitHub
+*.html
+
+# Keep Firebase deploy HTML if it is inside public/
+!public/*.html
