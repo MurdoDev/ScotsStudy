@@ -1,5 +1,0 @@
-[q01]
-type=open-ended
-topic=Trigonometry
-answers[\frac{63}{65}][63/65]
-marks=4
