@@ -1,6 +1,5 @@
-[q01-a-v-c]
-type=multiple-choice
+[q01]
+type=open-ended
 topic=Trigonometry
-A[12], B[15], C[18], D[20]
-correct=B
+answers[63/65][63÷65]
 marks=4
