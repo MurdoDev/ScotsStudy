@@ -44,14 +44,10 @@ START-EQUATION=
 y=x^3-6x^2+9x
 
 BACKGROUND-GRAPH=
-y= x^3 - 6x^2 + 9x
+y=x^3-6x^2+9x
 
 TARGET-EQUATION=
 y=x^3-3x+6
-
-TURNING-POINTS=
-[-1,8]
-[1,4]
 
 TOLERANCE=
 0.35
