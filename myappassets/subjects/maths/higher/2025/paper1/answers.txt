@@ -1,4 +1,4 @@
-[q01]
+[q01-a-v-c]
 type=multiple-choice
 topic=Trigonometry
 A[12], B[15], C[18], D[20]
