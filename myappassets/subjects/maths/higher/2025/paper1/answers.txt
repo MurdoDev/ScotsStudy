@@ -1,55 +1,6 @@
 [q01]
-type = multiple-choice
-topic = Functions
-marks = 1
-correct = B
-
-A[2]
-B[4]
-C[8]
-D[16]
-
-[q02]
-type = open-ended
-topic = Differentiation
-marks = 2
-answers[6x][6 x]
-
-[q03]
-type = adlib-open-ended
-topic = Trigonometry
-marks = 1
-
-template = sin([a]) = [b]
-
-a = 30, b = 0.5
-c = 90, d = 1
-
-a[0.5]
-c[1]
-
-[q04]
-type = adlib-multiple-choice
-topic = Quadratics
-marks = 1
-
-template = Solve x² - [a]x + [b] = 0
-
-a = 5, b = 6
-c = 7, d = 12
-
-[a]
-correct = B
-
-A[1 and 4]
-B[2 and 3]
-C[5 and 1]
-D[6 and 0]
-
-[c]
-correct = A
-
-A[3 and 4]
-B[2 and 6]
-C[1 and 12]
-D[5 and 7]
+type=multiple-choice
+topic=Trigonometry
+A[12], B[15], C[18], D[20]
+correct=B
+marks=4
