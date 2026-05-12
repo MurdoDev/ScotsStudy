@@ -40,8 +40,11 @@ transformations
 GRAPH-TYPE=
 cubic
 
+ALLOWED-TYPES=
+linear,quadratic,cubic,reciprocal
+
 START-EQUATION=
-y=x^3-6x^2+9x
+y=x^3
 
 BACKGROUND-GRAPH=
 y=x^3-6x^2+9x
