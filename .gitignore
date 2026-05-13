@@ -74,3 +74,5 @@ node_modules/
 # Keep Firebase deploy HTML if it is inside public/
 !public/*.html
 *.html
+*.html
+*.html
