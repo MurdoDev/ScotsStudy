@@ -217,6 +217,230 @@ body.light .nav-btn.active {
     cursor: pointer;
 }
 
+.settings-page {
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.settings-hero {
+    min-height: 170px;
+    display: flex;
+    align-items: center;
+    background:
+        radial-gradient(circle at 85% 20%, rgba(40,144,232,0.35), transparent 28%),
+        linear-gradient(135deg, var(--panel), var(--panel-light));
+}
+
+.settings-hero-left {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.settings-hero-icon {
+    width: 64px;
+    height: 64px;
+    padding: 14px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.12);
+}
+
+.settings-hero h2 {
+    margin: 0;
+    font-size: 34px;
+}
+
+.settings-hero p,
+.settings-card-title p,
+.settings-row-main span,
+.coming-soon-box span {
+    color: var(--muted);
+    margin: 4px 0 0;
+    font-weight: 600;
+}
+
+.settings-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+}
+
+.settings-card {
+    margin-bottom: 0;
+}
+
+.settings-card-title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+}
+
+.settings-card-title img,
+.settings-row img,
+.coming-soon-box img,
+.settings-stat img {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+}
+
+.settings-card-title h3 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.settings-row {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding-top: 8px;
+}
+
+.settings-row-main {
+    flex: 1;
+}
+
+.settings-row-main strong {
+    display: block;
+    font-size: 18px;
+}
+
+.settings-name-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.settings-name-row input {
+    flex: 1;
+}
+
+.appearance-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+
+.appearance-option {
+    position: relative;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 18px;
+    padding: 20px;
+    cursor: pointer;
+    text-align: left;
+    transition: 0.2s ease;
+}
+
+.appearance-option:hover,
+.appearance-option.active {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(0,114,206,0.18);
+    transform: translateY(-2px);
+}
+
+.appearance-option img {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 12px;
+}
+
+.appearance-option strong,
+.appearance-option span {
+    display: block;
+}
+
+.appearance-option span {
+    color: var(--muted);
+    margin-top: 4px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.coming-soon-box {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-top: 22px;
+    padding: 18px;
+    border-radius: 18px;
+    border: 1px solid rgba(0,114,206,0.35);
+    background: rgba(0,114,206,0.10);
+}
+
+.coming-soon-box strong {
+    display: block;
+    color: var(--primary-hover);
+}
+
+.settings-about {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.settings-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+
+.settings-stat {
+    background: var(--panel-light);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 18px;
+    text-align: center;
+}
+
+.settings-stat strong {
+    display: block;
+    font-size: 26px;
+    margin-top: 8px;
+}
+
+.settings-stat span {
+    display: block;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 800;
+    margin-top: 4px;
+}
+
+body.light .settings-hero {
+    background:
+        radial-gradient(circle at 85% 20%, rgba(0,114,206,0.16), transparent 30%),
+        linear-gradient(135deg, #ffffff, #edf6ff);
+}
+
+body.light .appearance-option {
+    background: #ffffff;
+}
+
+body.light .settings-card-title img,
+body.light .settings-row img,
+body.light .coming-soon-box img,
+body.light .settings-stat img,
+body.light .settings-hero-icon {
+    filter: none;
+}
+
+@media (max-width: 950px) {
+    .settings-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .appearance-grid,
+    .settings-stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .settings-name-row {
+        flex-direction: column;
+    }
+}
+
 .avatar {
     width: 46px;
     height: 46px;
@@ -237,24 +461,6 @@ body.light .nav-btn.active {
     box-shadow: 0 12px 28px rgba(0,0,0,0.18);
 }
 
-.paper-question-nav {
-    width: min(1200px, 100%);
-    margin: 0 auto 14px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 14px;
-}
-
-.paper-question-count {
-    font-weight: 800;
-    color: var(--muted);
-}
-
-.paper-question-nav .secondary-btn:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-}
 
 .graph-question {
     width: min(760px, 100%);
@@ -295,10 +501,11 @@ body.light .nav-btn.active {
 
 .paper-focus-card {
     width: min(1200px, 100%);
-    margin: -60px auto 0;
+    margin: 0 auto;
     background: #060606;
     border-color: #060606;
     box-shadow: none;
+    padding-top: 18px;
 }
 
 body.light .paper-focus-card {
@@ -306,11 +513,103 @@ body.light .paper-focus-card {
     border-color: #ffffff;
 }
 
-.paper-top-bar {
-    width: 100%;
-    margin: 0 0 18px;
+.paper-question-header {
+    width: min(1200px, 100%);
+    margin: 0 auto 18px;
+    padding: 14px 16px;
+    border-radius: 22px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 14px;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+body.light .paper-question-header {
+    background: #ffffff;
+}
+
+.paper-question-title {
+    text-align: center;
+}
+
+.paper-question-title strong {
+    display: block;
+    font-size: 17px;
+    font-weight: 900;
+}
+
+.paper-question-title span {
+    display: block;
+    margin-top: 3px;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.paper-question-actions {
     display: flex;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.paper-nav-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: var(--panel-light);
+    color: var(--text);
+    font-size: 18px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.paper-nav-btn:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.paper-nav-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.paper-reset-btn {
+    height: 42px;
+    padding: 0 16px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: rgba(239, 68, 68, 0.14);
+    color: var(--danger);
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.paper-reset-btn:hover {
+    background: var(--danger);
+    color: white;
+}
+
+.paper-back-btn {
+    height: 42px;
+    padding: 0 16px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: var(--panel-light);
+    color: var(--text);
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.paper-back-btn:hover {
+    background: var(--primary);
+    color: white;
 }
 
 .math-toolbar {
@@ -836,17 +1135,15 @@ body.light .paper-image { filter: none; }
 
 .open-answer-area {
     display: flex;
-    flex-direction: row;
-    gap: 18px;
-    align-items: flex-start;
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
 }
 
-.answer-input-column {
-    flex: 1;
-    min-width: 320px;
-    max-width: 700px;
+.answer-input-column,
+.calculator-column {
+    max-width: none;
+    min-width: 0;
 }
 
 .calculator-column {
@@ -1255,11 +1552,6 @@ textarea {
     </div>
 
 <div id="activePaperView" class="hidden">
-<div class="paper-top-bar" style="gap:12px;">
-    <button class="back-arrow-btn" onclick="openPastPaperYear(currentKey, currentYear)">←</button>
-        <button class="secondary-btn" onclick="resetPaperProgress()">Reset Progress</button>
-    </div>
-
     <div class="card paper-focus-card">
         <div class="breadcrumb" id="activePaperBreadcrumb">QS Subjects</div>
         <div id="activePaperQuestions"></div>
@@ -1320,22 +1612,108 @@ textarea {
         </div>
     </div>
 
-    <div id="optionsView" class="hidden">
-        <div class="card">
-            <h2>Settings</h2>
-            <div class="toggle-row">
-                <input type="checkbox" id="darkToggle" onchange="toggleDark()">
-                <label for="darkToggle">Dark Mode</label>
-            </div>
+<div id="optionsView" class="hidden">
+    <div class="settings-page">
 
-            <div class="form-group" style="margin-top:22px;">
-                <label>Display Name</label>
-                <input type="text" id="settingsNameInput" maxlength="20" placeholder="Your name">
-                <button class="primary-btn" style="margin-top:10px;" onclick="updateNameFromSettings()">Save Name</button>
+        <div class="settings-hero card">
+            <div class="settings-hero-left">
+                <img class="settings-hero-icon" src="https://raw.githubusercontent.com/MurdoDev/ScotsStudy/main/myappassets/settings.png" alt="">
+                <div>
+                    <h2>Settings</h2>
+                    <p>Customise your StudyScot experience.</p>
+                </div>
             </div>
         </div>
-    </div>
 
+        <div class="settings-grid">
+
+            <div class="settings-card card">
+                <div class="settings-card-title">
+                    <img src="https://raw.githubusercontent.com/MurdoDev/ScotsStudy/main/myappassets/sliders.png" alt="">
+                    <div>
+                        <h3>Preferences</h3>
+                        <p>Manage your profile.</p>
+                    </div>
+                </div>
+
+                <div class="settings-row">
+                    <img src="https://raw.githubusercontent.com/MurdoDev/ScotsStudy/main/myappassets/profile.png" alt="">
+                    <div class="settings-row-main">
+                        <strong>Display Name</strong>
+                        <span>This is how your name appears across StudyScot.</span>
+
+                        <div class="settings-name-row">
+                            <input type="text" id="settingsNameInput" maxlength="20" placeholder="Your name">
+                            <button class="primary-btn" onclick="updateNameFromSettings()">Save Name</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-card card">
+                <div class="settings-card-title">
+                    <img src="https://raw.githubusercontent.com/MurdoDev/ScotsStudy/main/myappassets/palette.png" alt="">
+                    <div>
+                        <h3>Appearance</h3>
+                        <p>Make StudyScot look and feel the way you like.</p>
+                    </div>
+                </div>
+
+                <div class="appearance-grid">
+                    <button class="appearance-option" onclick="setAppearanceMode('light')" id="appearanceLight">
+                        <img src="https://raw.githubusercontent.com/MurdoDev/ScotsStudy/main/myappassets/sun.png" alt="">
+                        <strong>Light</strong>
+                        <span>Crisp and clean</span>
+                    </button>
+
+                    <button class="appearance-option" onclick="setAppearanceMode('dark')" id="appearanceDark">
+                        <img src="https://raw.githubusercontent.com/MurdoDev/ScotsStudy/main/myappassets/moon.png" alt="">
+                        <strong>Dark</strong>
+                        <span>Easy on the eyes</span>
+                    </button>
+
+                    <button class="appearance-option" onclick="setAppearanceMode('system')" id="appearanceSystem">
+                        <img src="https://raw.githubusercontent.com/MurdoDev/ScotsStudy/main/myappassets/monitor.png" alt="">
+                        <strong>System</strong>
+                        <span>Use device setting</span>
+                    </button>
+                </div>
+
+                <div class="coming-soon-box">
+                    <img src="https://raw.githubusercontent.com/MurdoDev/ScotsStudy/main/myappassets/spark.png" alt="">
+                    <div>
+                        <strong>More themes coming soon!</strong>
+                        <span>We’re working on more ways to customise StudyScot.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-card card">
+                <div class="settings-card-title">
+                    <img src="https://raw.githubusercontent.com/MurdoDev/ScotsStudy/main/myappassets/info.png" alt="">
+                    <div>
+                        <h3>About StudyScot</h3>
+                        <p>Version 1.0.0</p>
+                    </div>
+                </div>
+
+                <p class="settings-about">Made with ❤️ in Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿</p>
+            </div>
+
+            <div class="settings-card card">
+                <div class="settings-card-title">
+                    <img src="https://raw.githubusercontent.com/MurdoDev/ScotsStudy/main/myappassets/graph-increasing.png" alt="">
+                    <div>
+                        <h3>Your Stats</h3>
+                        <p>A quick overview of your activity.</p>
+                    </div>
+                </div>
+
+                <div class="settings-stats-grid" id="settingsStatsGrid"></div>
+            </div>
+
+        </div>
+    </div>
 </div>
 
 <div id="nameModal" class="name-modal hidden">
@@ -1728,6 +2106,11 @@ setRoute(`/qs/${slugify(subject)}/${slugify(level)}`);
 }
 
 function openPastPaperYear(subjectKey, year, saveState = true) {
+if (!getYearsForSubjectKey(subjectKey).includes(String(year))) {
+    show404();
+    return;
+}
+
     currentKey = subjectKey;
     currentYear = year;
     const [subject, level] = subjectKey.split(" - ");
@@ -2127,19 +2510,30 @@ function renderActiveQuestions() {
         .join("");
 
     document.getElementById("activePaperQuestions").innerHTML = `
-        <div class="paper-question-nav">
-            <button class="secondary-btn" onclick="previousQuestion()" ${currentQuestionPage === 0 ? "disabled" : ""}>
-                ← Previous
-            </button>
+<div class="paper-question-header">
+    <button class="paper-back-btn" onclick="openPastPaperYear(currentKey, currentYear)">
+        ← Papers
+    </button>
 
-            <div class="paper-question-count">
-                Question ${currentQuestionPage + 1} / ${currentQuestionItems.length}
-            </div>
+    <div class="paper-question-title">
+        <strong>Question ${currentQuestionPage + 1} of ${currentQuestionItems.length}</strong>
+        <span>${escapeHtml(img.label || formatQuestionLabelFromId(img.id))}</span>
+    </div>
 
-            <button class="secondary-btn" onclick="nextQuestion()" ${currentQuestionPage === currentQuestionItems.length - 1 ? "disabled" : ""}>
-                Next →
-            </button>
-        </div>
+    <div class="paper-question-actions">
+        <button class="paper-nav-btn" onclick="previousQuestion()" ${currentQuestionPage === 0 ? "disabled" : ""}>
+            ◀
+        </button>
+
+        <button class="paper-nav-btn" onclick="nextQuestion()" ${currentQuestionPage === currentQuestionItems.length - 1 ? "disabled" : ""}>
+            ▶
+        </button>
+
+        <button class="paper-reset-btn" onclick="resetPaperProgress()">
+            Reset
+        </button>
+    </div>
+</div>
 
         <div class="question-image-card">
             ${stackedImages}
@@ -2232,21 +2626,23 @@ function renderOpenEnded(question) {
         const savedValue = session?.answerValue || "";
     return `
 <div class="open-answer-area">
+    <math-field
+        id="input-${question.instanceId}"
+        onkeydown="handleMathEnter(event, '${question.instanceId}')"
+        virtual-keyboard-mode="onfocus"
+        ${locked ? "read-only" : ""}
+    >${escapeHtml(savedValue)}</math-field>
 
-    <div class="answer-input-column">
-        <math-field
-            id="input-${question.instanceId}"
-            virtual-keyboard-mode="onfocus"
-            ${locked ? "read-only" : ""}
-        >${escapeHtml(savedValue)}</math-field>
-
-        <button class="primary-btn"
-                style="margin-top:14px;width:100%;"
-                onclick="submitOpenEnded('${question.instanceId}')"
-                ${locked ? "disabled" : ""}>
-            Submit
-        </button>
+    <div class="math-toolbar">
+        <!-- keep all calculator buttons here -->
     </div>
+
+    <button class="primary-btn"
+            onclick="submitOpenEnded('${question.instanceId}')"
+            ${locked ? "disabled" : ""}>
+        Submit
+    </button>
+</div>
 
     <div class="calculator-column">
         <div class="math-toolbar">
@@ -3574,6 +3970,10 @@ function showView(view, btn = null, saveState = true) {
     if (view === "achievements") renderAchievements();
     if (view === "myResults") renderMyResults();
     if (view === "account") renderAccountPage();
+    if (view === "options") {
+        applyAppearanceMode();
+        renderSettingsStats();
+    }
 }
 
 function updateNameCounter() {
@@ -3698,9 +4098,13 @@ function saveCompletedPaperResult(earned, possible, wrongQuestions) {
     };
 
     const results = getStoredResults();
+
     results.unshift(result);
 
-    saveStoredResults(results);
+    // Keep only newest 100
+    const trimmed = results.slice(0, 100);
+
+    saveStoredResults(trimmed);
 
     currentSession.__resultSaved = true;
 
@@ -4087,17 +4491,90 @@ document.getElementById("nameInput").addEventListener("keydown", function(e) {
     if (e.key === "Enter") saveUserName();
 });
 
-if (localStorage.getItem("dark") !== "false") {
-    document.getElementById("darkToggle").checked = true;
-} else {
-    document.body.classList.add("light");
+applyAppearanceMode();
+
+window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+    if (getAppearanceMode() === "system") {
+        applyAppearanceMode();
+    }
+});
+
+function getAppearanceMode() {
+    return localStorage.getItem("appearanceMode") || "dark";
 }
 
-function toggleDark() {
-    document.body.classList.toggle("light");
-    const darkEnabled = !document.body.classList.contains("light");
-    localStorage.setItem("dark", darkEnabled);
+function applyAppearanceMode() {
+    const mode = getAppearanceMode();
+
+    if (mode === "system") {
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.body.classList.toggle("light", !prefersDark);
+    } else {
+        document.body.classList.toggle("light", mode === "light");
+    }
+
+    document.querySelectorAll(".appearance-option").forEach(btn => {
+        btn.classList.remove("active");
+    });
+
+    const activeButton = document.getElementById(
+        mode === "light" ? "appearanceLight" :
+        mode === "dark" ? "appearanceDark" :
+        "appearanceSystem"
+    );
+
+    if (activeButton) activeButton.classList.add("active");
+}
+
+function setAppearanceMode(mode) {
+    localStorage.setItem("appearanceMode", mode);
+
+    localStorage.setItem("dark", mode === "dark");
+
+    applyAppearanceMode();
     saveCloudData();
+}
+
+function renderSettingsStats() {
+    const grid = document.getElementById("settingsStatsGrid");
+    if (!grid) return;
+
+    const results = getStoredResults();
+    const topics = JSON.parse(localStorage.getItem("quizTopics")) || {};
+
+    const papersCreated = Object.values(topics).reduce((sum, arr) => sum + arr.length, 0);
+    const subjectsRevised = Object.keys(topics).length;
+    const stats = getAchievementStats();
+
+    const average = results.length
+        ? results.reduce((sum, result) => sum + result.percent, 0) / results.length
+        : 0;
+
+    grid.innerHTML = `
+        <div class="settings-stat">
+            <img src="https://raw.githubusercontent.com/MurdoDev/ScotsStudy/main/myappassets/document.png" alt="">
+            <strong>${papersCreated}</strong>
+            <span>Papers Created</span>
+        </div>
+
+        <div class="settings-stat">
+            <img src="https://raw.githubusercontent.com/MurdoDev/ScotsStudy/main/myappassets/open-book.png" alt="">
+            <strong>${subjectsRevised}</strong>
+            <span>Subjects Revised</span>
+        </div>
+
+        <div class="settings-stat">
+            <img src="https://raw.githubusercontent.com/MurdoDev/ScotsStudy/main/myappassets/achievements-hollow.png" alt="">
+            <strong>${achievementList.filter(a => a.unlocked(stats)).length}</strong>
+            <span>Achievements</span>
+        </div>
+
+        <div class="settings-stat">
+            <img src="https://raw.githubusercontent.com/MurdoDev/ScotsStudy/main/myappassets/arrow-increasing.png" alt="">
+            <strong>${average.toFixed(0)}%</strong>
+            <span>Avg. Score</span>
+        </div>
+    `;
 }
 
 function saveRecentPaper(subjectKey, year, paperType) {
@@ -4227,6 +4704,10 @@ function openRecentPaper(subjectKey, year, paperType) {
     launchPaper(paperType);
 }
 
+function show404() {
+    window.location.href = "/404.html";
+}
+
 function clearRecentPapers() {
     localStorage.removeItem("recentPapers");
     renderRecentPapers();
@@ -4305,26 +4786,48 @@ function routeToCurrentView() {
             return;
         }
 
+        if (parts.length < 3 || parts.length > 5) {
+            show404();
+            return;
+        }
+
         const subject = unslugSubject(parts[1]);
         const level = unslugLevel(parts[2]);
         const key = `${subject} - ${level}`;
+
+        if (!pastPapers[key]) {
+            show404();
+            return;
+        }
 
         if (parts.length === 3) {
             openSet(key, false);
             return;
         }
 
-        if (parts.length === 4) {
-            openPastPaperYear(key, parts[3], false);
+        const year = parts[3];
+
+        if (!getYearsForSubjectKey(key).includes(year)) {
+            show404();
             return;
         }
 
-        if (parts.length === 5) {
-            currentKey = key;
-            currentYear = parts[3];
-            launchPaper(slugToPaperType(parts[4]), false);
+        if (parts.length === 4) {
+            openPastPaperYear(key, year, false);
             return;
         }
+
+        const paperType = slugToPaperType(parts[4]);
+
+        if (!paperType) {
+            show404();
+            return;
+        }
+
+        currentKey = key;
+        currentYear = year;
+        launchPaper(paperType, false);
+        return;
     }
 
     const simpleRoutes = {
@@ -4337,12 +4840,12 @@ function routeToCurrentView() {
         settings: "options"
     };
 
-    if (simpleRoutes[parts[0]]) {
+    if (simpleRoutes[parts[0]] && parts.length === 1) {
         showView(simpleRoutes[parts[0]], null, false);
         return;
     }
 
-    showView("topics", null, false);
+    show404();
 }
 
 function restoreLastPage() {
