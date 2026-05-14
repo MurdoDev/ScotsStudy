@@ -90,10 +90,18 @@ ANSWERS=
 [y=-\frac13cos3x+\frac76]
 MARKS=4
 
-[q09]
+[q9]
+TYPE=open-ended
+TOPIC=logarithms
+ANSWER-TYPE=general
+ANSWERS=
+[2]
+MARKS=3
+
+[q10]
 TYPE=open-ended
 TOPIC=functions,inverse-functions
 ANSWER-TYPE=general
 ANSWERS=
 [\sqrt2 when x = \frac{7\pi}{4}]
-MARKS=3
+MARKS=6
