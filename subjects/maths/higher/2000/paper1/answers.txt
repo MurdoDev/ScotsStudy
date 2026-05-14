@@ -20,3 +20,9 @@ BACKGROUND-GRAPH=y=x^3-6x^2+9x
 TARGET-EQUATION=y=x^3-3x+6
 TOLERANCE=0.35
 MARKS=2
+
+[q03]
+TYPE=open-ended
+TOPIC=trigonometry, angles, graphs
+ANSWERS=[30][a = 30]
+MARKS=3
