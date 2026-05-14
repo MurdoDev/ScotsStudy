@@ -40,11 +40,10 @@ ANSWER-TYPE=list
 ANSWERS=
 [1/3,3]
 MARKS=4
-
 [q04-a-ii]
 TYPE=open-ended
 TOPIC=differentiation, graphs
-ANSWER-TYPE=list
+ANSWER-TYPE=words
 ANSWERS=
 [parallel,coincident]
 MARKS=1
