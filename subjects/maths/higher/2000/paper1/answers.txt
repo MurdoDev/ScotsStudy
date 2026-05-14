@@ -33,7 +33,7 @@ ANSWERS=
 [30]
 MARKS=3
 
-[q04-a-1]
+[q04-a-i]
 TYPE=open-ended
 TOPIC=differentiation, graphs
 ANSWER-TYPE=list
