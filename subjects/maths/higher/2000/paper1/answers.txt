@@ -90,7 +90,7 @@ ANSWERS=
 [y=-\frac13cos3x+\frac76]
 MARKS=4
 
-[q9]
+[q09]
 TYPE=open-ended
 TOPIC=logarithms
 ANSWER-TYPE=general
