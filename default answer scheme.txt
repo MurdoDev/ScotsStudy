@@ -1,25 +1,19 @@
 # =========================================================
+# STUDYSCOT ANSWERS.TXT FORMAT REFERENCE
+# =========================================================
+
+
+# =========================================================
 # 1. OPEN ENDED
 # =========================================================
 
 [q01]
-
-TYPE=
-open-ended
-
-TOPIC=
-trigonometry
-
-ANSWERS=
-[\frac{63}{65}]
-[63/65]
-
+TYPE=open-ended
+TOPIC=trigonometry,exact-values
+ANSWERS=[\frac{63}{65}][63/65]
 PARTIAL=2
 [0.97]
-
-MARKS=
-4
-
+MARKS=4
 
 
 # =========================================================
@@ -27,127 +21,93 @@ MARKS=
 # =========================================================
 
 [q02]
-
-TYPE=
-multiple-choice
-
-TOPIC=
-algebra
+TYPE=multiple-choice
+TOPIC=algebra
 
 A[2]
 B[4]
 C[6]
 D[8]
 
-CORRECT=
-B
-
-MARKS=
-1
-
+CORRECT=B
+MARKS=1
 
 
 # =========================================================
-# 3. ADLIB OPEN ENDED
-# Randomly blanks one variable
+# 3. OPEN ENDED SUBQUESTION
+# Image file would be q03-a.png
 # =========================================================
 
-[q03]
-
-TYPE=
-adlib-open-ended
-
-TOPIC=
-fractions
-
-TEMPLATE=
-Calculate [a] + [b]
-
-a=
-\frac{1}{2}
-
-b=
-\frac{1}{4}
-
-a[\frac{1}{2}]
-[0.5]
-
-b[\frac{1}{4}]
-[0.25]
-
-MARKS=
-1
-
+[q03-a]
+TYPE=open-ended
+TOPIC=differentiation,stationary-points
+ANSWERS=[A(1,4)][(1,4)][x = 1, y = 4][1,4]
+MARKS=4
 
 
 # =========================================================
-# 4. ADLIB MULTIPLE CHOICE
+# 4. GRAPH QUESTION
+# Image file would be q03-b.png
+# =========================================================
+
+[q03-b]
+TYPE=graph
+TOPIC=transformations,cubic
+GRAPH-TYPE=cubic
+ALLOWED-TYPES=linear,quadratic,cubic,reciprocal
+START-EQUATION=y=x^3
+BACKGROUND-GRAPH=y=x^3-6x^2+9x
+TARGET-EQUATION=y=x^3-3x+6
+TOLERANCE=0.35
+MARKS=2
+
+
+# =========================================================
+# 5. ADLIB OPEN ENDED
 # Randomly blanks one variable
 # =========================================================
 
 [q04]
+TYPE=adlib-open-ended
+TOPIC=fractions
 
-TYPE=
-adlib-multiple-choice
+TEMPLATE=Calculate [a] + [b]
 
-TOPIC=
-substitution
+a=\frac{1}{2}
+b=\frac{1}{4}
 
-TEMPLATE=
-Evaluate [a] + [b]
+a[\frac{1}{2}][0.5]
+b[\frac{1}{4}][0.25]
 
-a=
-3
+MARKS=1
 
-b=
-5
+
+# =========================================================
+# 6. ADLIB MULTIPLE CHOICE
+# Randomly blanks one variable
+# =========================================================
+
+[q05]
+TYPE=adlib-multiple-choice
+TOPIC=substitution
+
+TEMPLATE=Evaluate [a] + [b]
+
+a=3
+b=5
 
 [a]
 A[3]
 B[4]
 C[5]
 D[6]
-
-CORRECT=
-A
+CORRECT=A
 
 [b]
 A[5]
 B[6]
 C[7]
 D[8]
+CORRECT=A
 
-CORRECT=
-A
-
-MARKS=
-1
-
-# =========================================================
-# 5. GRAPH EDITOR
-# =========================================================
-
-[q12]
-TYPE=
-graph
-
-TOPIC=
-transformations
-
-GRAPH-TYPE=
-quadratic
-
-START-EQUATION=
-y=x^2
-
-BACKGROUND-GRAPH=
-y=x^2
-
-TARGET-EQUATION=
-y=(x-3)^2+2
-
-TOLERANCE=
-0.35
-
-MARKS=
-4
+MARKS=1

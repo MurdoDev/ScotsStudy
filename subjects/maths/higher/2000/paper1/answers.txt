@@ -1,59 +1,22 @@
 [q01]
-TYPE=
-open-ended
-
-TOPIC=
-trigonometry
-
-ANSWERS=
-[\frac{63}{65}]
-[63/65]
-[\frac{126}{130}]
-[126/30]
-
-MARKS=
-4
+TYPE=open-ended
+TOPIC=trigonometry, angles
+ANSWERS=[\frac{63}{65}][63/65][\frac{126}{130}][126/130]
+MARKS=4
 
 [q02-a]
-TYPE=
-open-ended
-
-TOPIC=
-differentiation
-
-ANSWERS=
-[A(1,4)]
-[(1,4)]
-[x = 1, y = 4]
-[1,4]
-
-MARKS=
-4
+TYPE=open-ended
+TOPIC=differentiation, graphs,
+ANSWERS=[A(1,4)][(1,4)][x = 1, y = 4][1,4]
+MARKS=4
 
 [q02-b]
-TYPE=
-graph
-
-TOPIC=
-transformations
-
-GRAPH-TYPE=
-cubic
-
-ALLOWED-TYPES=
-linear,quadratic,cubic,reciprocal
-
-START-EQUATION=
-y=x^3
-
-BACKGROUND-GRAPH=
-y=x^3-6x^2+9x
-
-TARGET-EQUATION=
-y=x^3-3x+6
-
-TOLERANCE=
-0.35
-
-MARKS=
-2
+TYPE=graph
+TOPIC=transformations, graphs, functions
+GRAPH-TYPE=cubic
+ALLOWED-TYPES=linear,quadratic,cubic,reciprocal
+START-EQUATION=y=x^3
+BACKGROUND-GRAPH=y=x^3-6x^2+9x
+TARGET-EQUATION=y=x^3-3x+6
+TOLERANCE=0.35
+MARKS=2
