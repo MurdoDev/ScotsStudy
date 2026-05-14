@@ -2,18 +2,59 @@
 # STUDYSCOT ANSWERS.TXT FORMAT REFERENCE
 # =========================================================
 
+# MAIN FIELDS:
+#
+# [q01]                  Question ID. Image file should be q01.png.
+# [q02-a]                Subquestion ID. Image file should be q02-a.png.
+# TYPE=                  Question type.
+# TOPIC=                 Comma-separated topic tags for revision filtering.
+# ANSWER-TYPE=           Tells the marker how to normalise the answer.
+# ANSWERS=               Correct answers. Put each accepted answer in [square brackets].
+# PARTIAL=               Starts a partial-credit answer section.
+# MARKS=                 Total marks for the question.
+#
+# Common ANSWER-TYPE values:
+#
+# general                Default plain maths/text matching.
+# fraction               Fractions, decimals, equivalent fractions.
+# coordinate             Coordinates like (1,4), A(1,4), x=1,y=4.
+# vector                 Vectors like 1,-8,-16 or column vectors.
+# angle                  Angles like 30, 30°, a=30°.
+# list                   Multiple answers where order does not matter.
+# set                    Set-style answers like all_real.
+#
+# Keep ANSWERS clean.
+# Do not list every possible student wording.
+# Let ANSWER-TYPE and the normaliser handle variations.
+
 
 # =========================================================
-# 1. OPEN ENDED
+# 1. OPEN ENDED FRACTION ANSWER
 # =========================================================
 
 [q01]
 TYPE=open-ended
 TOPIC=trigonometry,exact-values
-ANSWERS=[\frac{63}{65}][63/65]
+ANSWER-TYPE=fraction
+
+ANSWERS=
+[63/65]
+
 PARTIAL=2
 [0.97]
+
 MARKS=4
+
+# Accepted automatically:
+#
+# 63/65
+# \frac{63}{65}
+# 126/130
+# \frac{126}{130}
+# 0.969230769...
+#
+# Use ANSWER-TYPE=fraction when the answer is a number,
+# fraction, decimal, or equivalent numerical value.
 
 
 # =========================================================
@@ -32,17 +73,45 @@ D[8]
 CORRECT=B
 MARKS=1
 
+# Notes:
+#
+# Multiple choice does not need ANSWER-TYPE.
+# CORRECT uses the letter of the correct option.
+# Each option uses:
+#
+# A[answer shown to student]
+
 
 # =========================================================
-# 3. OPEN ENDED SUBQUESTION
+# 3. OPEN ENDED COORDINATE ANSWER
 # Image file would be q03-a.png
 # =========================================================
 
 [q03-a]
 TYPE=open-ended
 TOPIC=differentiation,stationary-points
-ANSWERS=[A(1,4)][(1,4)][x = 1, y = 4][1,4]
+ANSWER-TYPE=coordinate
+
+ANSWERS=
+[(1,4)]
+
 MARKS=4
+
+# Accepted automatically:
+#
+# (1,4)
+# A(1,4)
+# B(1,4)
+# 1,4
+# x=1,y=4
+# x = 1, y = 4
+#
+# Not accepted:
+#
+# (4,1)
+# A(4,1)
+#
+# Use ANSWER-TYPE=coordinate when order matters as x,y.
 
 
 # =========================================================
@@ -53,13 +122,27 @@ MARKS=4
 [q03-b]
 TYPE=graph
 TOPIC=transformations,cubic
+
 GRAPH-TYPE=cubic
 ALLOWED-TYPES=linear,quadratic,cubic,reciprocal
+
 START-EQUATION=y=x^3
 BACKGROUND-GRAPH=y=x^3-6x^2+9x
 TARGET-EQUATION=y=x^3-3x+6
+
 TOLERANCE=0.35
 MARKS=2
+
+# Fields:
+#
+# GRAPH-TYPE=            Starting graph type.
+# ALLOWED-TYPES=         Graph types the student can switch between.
+# START-EQUATION=        Starting graph shown to the student.
+# BACKGROUND-GRAPH=      Faint guide/background graph.
+# TARGET-EQUATION=       Correct target graph.
+# TOLERANCE=             Allowed difference when comparing graph points.
+#
+# Graph questions do not use ANSWER-TYPE or ANSWERS.
 
 
 # =========================================================
@@ -70,6 +153,7 @@ MARKS=2
 [q04]
 TYPE=adlib-open-ended
 TOPIC=fractions
+ANSWER-TYPE=fraction
 
 TEMPLATE=Calculate [a] + [b]
 
@@ -80,6 +164,17 @@ a[\frac{1}{2}][0.5]
 b[\frac{1}{4}][0.25]
 
 MARKS=1
+
+# How it works:
+#
+# TEMPLATE contains variables in [square brackets].
+# The app randomly chooses one variable to blank.
+#
+# If [a] is blank, accepted answers come from:
+# a[...][...]
+#
+# If [b] is blank, accepted answers come from:
+# b[...][...]
 
 
 # =========================================================
@@ -111,3 +206,121 @@ D[8]
 CORRECT=A
 
 MARKS=1
+
+# How it works:
+#
+# [a] and [b] are sub-blocks.
+# Each block has its own choices and correct option.
+# The app randomly chooses which variable to blank.
+
+
+# =========================================================
+# 7. MULTIPLE ANSWERS / UNORDERED LIST
+# Order does not matter
+# =========================================================
+
+[q06]
+TYPE=open-ended
+TOPIC=differentiation
+ANSWER-TYPE=list
+
+ANSWERS=
+[1/3,3]
+
+MARKS=4
+
+# Accepted automatically:
+#
+# 1/3,3
+# 3,1/3
+# x=1/3,x=3
+# x=3,x=1/3
+# x=\frac13,x=3
+# 1/3 and 3
+#
+# Use ANSWER-TYPE=list when the student needs to give
+# several answers and the order does not matter.
+
+
+# =========================================================
+# 8. ANGLES
+# =========================================================
+
+[q07]
+TYPE=open-ended
+TOPIC=trigonometry,angles
+ANSWER-TYPE=angle
+
+ANSWERS=
+[30]
+
+MARKS=3
+
+# Accepted automatically:
+#
+# 30
+# 30°
+# 30\degree
+# a=30
+# a=30°
+# angle=30
+#
+# Use ANSWER-TYPE=angle when degree symbols and angle
+# variable labels should be ignored.
+
+
+# =========================================================
+# 9. UNIVERSAL / ALL REAL ANSWERS
+# =========================================================
+
+[q08]
+TYPE=open-ended
+TOPIC=graphs,circles
+ANSWER-TYPE=set
+
+ANSWERS=
+[all_real]
+
+MARKS=2
+
+# Accepted automatically:
+#
+# all_real
+# for all k
+# all k
+# all real values
+# all real values of k
+# all real numbers
+# any real number
+# k ∈ ℝ
+# k\in\mathbb{R}
+#
+# Use ANSWER-TYPE=set for answers about domains,
+# ranges, solution sets, or all real values.
+
+
+# =========================================================
+# 10. VECTOR / COLUMN VECTOR
+# =========================================================
+
+[q09]
+TYPE=open-ended
+TOPIC=vectors,component-form
+ANSWER-TYPE=vector
+
+ANSWERS=
+[1,-8,-16]
+
+MARKS=3
+
+# Accepted automatically:
+#
+# 1,-8,-16
+# (1,-8,-16)
+# <1,-8,-16>
+# VK=(1,-8,-16)
+# i-8j-16k
+# 1i-8j-16k
+# \begin{pmatrix}1\\-8\\-16\end{pmatrix}
+#
+# Use ANSWER-TYPE=vector for 2D or 3D vector components.

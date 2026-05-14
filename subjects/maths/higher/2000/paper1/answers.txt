@@ -1,13 +1,17 @@
 [q01]
 TYPE=open-ended
 TOPIC=trigonometry, angles
-ANSWERS=[\frac{63}{65}][63/65][\frac{126}{130}][126/130]
+ANSWER-TYPE=fraction
+ANSWERS=
+[63/65]
 MARKS=4
 
 [q02-a]
 TYPE=open-ended
-TOPIC=differentiation, graphs,
-ANSWERS=[A(1,4)][(1,4)][x = 1, y = 4][1,4]
+TOPIC=differentiation, graphs
+ANSWER-TYPE=coordinate
+ANSWERS=
+[(1,4)]
 MARKS=4
 
 [q02-b]
@@ -24,5 +28,72 @@ MARKS=2
 [q03]
 TYPE=open-ended
 TOPIC=trigonometry, angles, graphs
-ANSWERS=[30][a = 30]
+ANSWER-TYPE=angle
+ANSWERS=
+[30]
+MARKS=3
+
+[q04-a-1]
+TYPE=open-ended
+TOPIC=differentiation, graphs
+ANSWER-TYPE=list
+ANSWERS=
+[1/3,3]
+MARKS=4
+
+[q04-a-ii]
+TYPE=open-ended
+TOPIC=differentiation, graphs
+ANSWER-TYPE=list
+ANSWERS=
+[parallel,coincident]
+MARKS=1
+
+[q04-b]
+TYPE=open-ended
+TOPIC=differentiation, graphs
+ANSWER-TYPE=fraction
+ANSWERS=
+[64/3]
+MARKS=5
+
+[q05]
+TYPE=open-ended
+TOPIC=recurrence relations
+ANSWER-TYPE=list
+ANSWERS=
+[a=3/5,l=25]
+[a=0.6,l=25]
+MARKS=4
+
+[q06]
+TYPE=open-ended
+TOPIC=graphs, circles
+ANSWER-TYPE=set
+ANSWERS=
+[all_real]
+MARKS=4
+
+[q07]
+TYPE=open-ended
+TOPIC=vectors,component-form
+ANSWER-TYPE=vector
+ANSWERS=
+[1,-8,-16]
+MARKS=3
+
+[q08]
+TYPE=open-ended
+TOPIC=functions,inverse-functions
+ANSWER-TYPE=general
+ANSWERS=
+[y=-\frac13cos3x+\frac76]
+MARKS=4
+
+[q09]
+TYPE=open-ended
+TOPIC=functions,inverse-functions
+ANSWER-TYPE=general
+ANSWERS=
+[\sqrt2 when x = \frac{7\pi}{4}]
 MARKS=3
